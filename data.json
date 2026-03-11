@@ -4,39 +4,39 @@
     "Station3": {
       "soil_temp": 20.8,
       "soil_moisture": 22.1,
-      "EC": 73,
+      "EC": 43,
       "PH": 5.4,
-      "Nitrogen": 11,
-      "Phosphorus": 15,
-      "Potassium": 39
+      "Nitrogen": 10,
+      "Phosphorus": 14,
+      "Potassium": 37
     },
     "Station4": {
       "soil_temp": 20.2,
-      "soil_moisture": 18.3,
-      "EC": 121,
+      "soil_moisture": 18.4,
+      "EC": 148,
       "PH": 4.4,
-      "Nitrogen": 12,
-      "Phosphorus": 16,
-      "Potassium": 41
-    },
-    "Station1": {
-      "soil_temp": 20.8,
-      "soil_moisture": 23.2,
-      "EC": 145,
-      "PH": 5.9,
       "Nitrogen": 12,
       "Phosphorus": 16,
       "Potassium": 42
     },
+    "Station1": {
+      "soil_temp": 20.8,
+      "soil_moisture": 23.3,
+      "EC": 105,
+      "PH": 5.8,
+      "Nitrogen": 12,
+      "Phosphorus": 16,
+      "Potassium": 40
+    },
     "Station2": {
       "soil_temp": 20.8,
-      "soil_moisture": 21.7,
-      "EC": 185,
+      "soil_moisture": 21.8,
+      "EC": 124,
       "PH": 6.0,
-      "Nitrogen": 13,
-      "Phosphorus": 17,
-      "Potassium": 44
+      "Nitrogen": 12,
+      "Phosphorus": 16,
+      "Potassium": 41
     }
   },
-  "update_time": "2026-03-11 17:18:24"
+  "update_time": "2026-03-11 17:23:59"
 }
