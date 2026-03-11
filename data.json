@@ -1,0 +1,48 @@
+{
+  "update_time": "2026-03-11 18:07:44",
+  "weather": {
+    "obs_time": "N/A",
+    "weather": "N/A",
+    "air_temp": 0.0,
+    "humidity": 0.0,
+    "precipitation": 0.0
+  },
+  "stations": {
+    "Station1": {
+      "soil_temp": 21.0,
+      "soil_moisture": 22.5,
+      "ec": 93,
+      "ph": 5.9,
+      "nitrogen": 12,
+      "phosphorus": 16,
+      "potassium": 40
+    },
+    "Station2": {
+      "soil_temp": 20.9,
+      "soil_moisture": 22.1,
+      "ec": 136,
+      "ph": 6.2,
+      "nitrogen": 12,
+      "phosphorus": 16,
+      "potassium": 42
+    },
+    "Station3": {
+      "soil_temp": 21.0,
+      "soil_moisture": 21.9,
+      "ec": 76,
+      "ph": 5.4,
+      "nitrogen": 11,
+      "phosphorus": 15,
+      "potassium": 39
+    },
+    "Station4": {
+      "soil_temp": 20.3,
+      "soil_moisture": 18.4,
+      "ec": 124,
+      "ph": 4.3,
+      "nitrogen": 12,
+      "phosphorus": 16,
+      "potassium": 41
+    }
+  }
+}
