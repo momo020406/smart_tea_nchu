@@ -62,20 +62,20 @@
     </div>
 
     <script>
-        const stations = ['Station1', 'Station2', 'Station3', 'Station4'];
+        const stations = [1, 2, 3, 4];
         
         function renderStation(id, data) {
             return `
                 <div class="bg-white rounded-xl shadow-md p-5 border-t-4 border-tea-600 hover:shadow-lg transition-shadow">
-                    <h3 class="text-lg font-bold text-tea-900 mb-3 border-b pb-2">${id}</h3>
+                    <h3 class="text-lg font-bold text-tea-900 mb-3 border-b pb-2">Station ${id}</h3>
                     <div class="space-y-2 text-sm">
-                        <div class="flex justify-between"><span class="text-gray-600">土壤溫度</span> <span class="font-semibold text-red-600">${data.soil_temp || '-'} °C</span></div>
-                        <div class="flex justify-between"><span class="text-gray-600">土壤濕度</span> <span class="font-semibold text-blue-600">${data.soil_moisture || '-'} %</span></div>
-                        <div class="flex justify-between"><span class="text-gray-600">電導率 (EC)</span> <span class="font-semibold text-yellow-600">${data.ec || '-'} us/cm</span></div>
-                        <div class="flex justify-between"><span class="text-gray-600">酸鹼度 (pH)</span> <span class="font-semibold text-purple-600">${data.ph || '-'}</span></div>
-                        <div class="flex justify-between mt-2 pt-2 border-t"><span class="text-gray-600">氮 (N)</span> <span class="font-semibold text-green-700">${data.nitrogen || '-'} mg/kg</span></div>
-                        <div class="flex justify-between"><span class="text-gray-600">磷 (P)</span> <span class="font-semibold text-orange-600">${data.phosphorus || '-'} mg/kg</span></div>
-                        <div class="flex justify-between"><span class="text-gray-600">鉀 (K)</span> <span class="font-semibold text-teal-600">${data.potassium || '-'} mg/kg</span></div>
+                        <div class="flex justify-between"><span class="text-gray-600">土壤溫度</span> <span class="font-semibold text-red-600">${data.soil_temp ?? '-'} °C</span></div>
+                        <div class="flex justify-between"><span class="text-gray-600">土壤濕度</span> <span class="font-semibold text-blue-600">${data.soil_moisture ?? '-'} %</span></div>
+                        <div class="flex justify-between"><span class="text-gray-600">電導率 (EC)</span> <span class="font-semibold text-yellow-600">${data.ec ?? '-'} us/cm</span></div>
+                        <div class="flex justify-between"><span class="text-gray-600">酸鹼度 (pH)</span> <span class="font-semibold text-purple-600">${data.ph ?? '-'}</span></div>
+                        <div class="flex justify-between mt-2 pt-2 border-t"><span class="text-gray-600">氮 (N)</span> <span class="font-semibold text-green-700">${data.n ?? '-'} mg/kg</span></div>
+                        <div class="flex justify-between"><span class="text-gray-600">磷 (P)</span> <span class="font-semibold text-orange-600">${data.p ?? '-'} mg/kg</span></div>
+                        <div class="flex justify-between"><span class="text-gray-600">鉀 (K)</span> <span class="font-semibold text-teal-600">${data.k ?? '-'} mg/kg</span></div>
                     </div>
                 </div>
             `;
@@ -93,19 +93,20 @@
                     document.getElementById('weather-cond').innerText = data.weather.weather;
                     document.getElementById('air-temp').innerText = data.weather.air_temp;
                     document.getElementById('air-humid').innerText = data.weather.humidity;
-                    document.getElementById('precip').innerText = data.weather.precipitation;
+                    document.getElementById('precip').innerText = data.weather.precip;
                 }
                 
                 // Update Stations
                 const container = document.getElementById('stations-container');
                 container.innerHTML = '';
                 
-                stations.forEach(st => {
-                    const stData = data.stations && data.stations[st] ? data.stations[st] : {};
-                    container.innerHTML += renderStation(st, stData);
+                stations.forEach(sid => {
+                    const stKey = "Station" + sid;
+                    const stData = data.sensors && data.sensors[stKey] ? data.sensors[stKey] : {};
+                    container.innerHTML += renderStation(sid, stData);
                 });
                 
-                document.getElementById('update-time').innerText = "最後更新: " + new Date().toLocaleTimeString();
+                document.getElementById('update-time').innerText = "最後更新: " + data.last_update;
             } catch (err) {
                 console.error("Failed to load data:", err);
                 document.getElementById('update-time').innerText = "無法載入資料 (Offline)";
